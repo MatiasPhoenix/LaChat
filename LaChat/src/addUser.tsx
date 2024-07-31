@@ -1,4 +1,4 @@
-import { ref, push } from 'firebase/database';
+import { ref, push, set } from 'firebase/database';
 import { db } from './firebase-config';
 
 interface ChatMessage {

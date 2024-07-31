@@ -49,7 +49,7 @@ const App: React.FC = () => {
       <input
         type="number"
         value={age}
-        onChange={(e) => setAge(e.target.value)}
+        // onChange={(e) => setAge(e.target.value)}
         placeholder="Età"
       />
       <button onClick={handleSubmit}>Aggiungi Utente</button>
