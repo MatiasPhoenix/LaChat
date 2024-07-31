@@ -5,8 +5,8 @@ import { addMessage } from '../../addUser';
 
 
 function Prova2() {
-  const [user, setUser] = useState<string>(''); // 'user1' o 'user2'
-  const [message, setMessage] = useState<string>('');
+  const [user,     setUser]     = useState<string>(''); // 'user1' o 'user2'
+  const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
   const chatId = 'chat_example';
 
@@ -43,16 +43,17 @@ function Prova2() {
 
       {/* Area per inviare un messaggio */}
       <div>
-        <input
-          className='py-2 px-3'
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Scrivi il tuo messaggio"
-        />
-        <button onClick={inviaMessaggio} onKeyPress={(e) => e.key === 'Enter' && inviaMessaggio()}
-        >Invia</button>
+      <input
+        className='py-2 px-3'
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && inviaMessaggio()}
+        placeholder="Scrivi il tuo messaggio"
+      />
+      <button onClick={inviaMessaggio}>Invia</button>
       </div>
+
 
       {/* Visualizzazione messaggi */}
       <div className='mt-5'>
