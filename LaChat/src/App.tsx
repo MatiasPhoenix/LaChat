@@ -6,6 +6,7 @@ import LinksRoutes from './Components/LinksRoutes';
 
 function App() {
   const [name, setName] = useState('');
+  const [boolUser, setBoolUser] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
 
   const handleSubmit = async () => {
@@ -20,9 +21,16 @@ function App() {
 
   useEffect(() => {
     getUserId();
+    booleanUser();
   });
 
- 
+ const booleanUser = () =>{
+  if (userId == null) {
+    setBoolUser(false);
+  }else{
+    setBoolUser(true);
+  }
+ }
   const getUserId = () => {
     const nomeTemp = localStorage.getItem("userName");
     if (nomeTemp !== null) {

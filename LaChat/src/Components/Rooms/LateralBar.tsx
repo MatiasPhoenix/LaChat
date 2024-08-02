@@ -1,4 +1,4 @@
-import { Sidebar } from 'react-pro-sidebar';
+
 
 function LateralBar() {
   return (

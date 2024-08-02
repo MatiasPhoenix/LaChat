@@ -36,6 +36,7 @@ function Prova2() {
     const nomeTemp = localStorage.getItem("userName");
     if (nomeTemp !== null) {
       setUserId(nomeTemp);
+      setUser(nomeTemp)
     } else {
       console.log("Nome utente non trovato nel local storage");
     }

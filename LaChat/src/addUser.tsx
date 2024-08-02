@@ -1,6 +1,7 @@
 import { ref, push, set } from 'firebase/database';
 import { db } from './firebase-config';
 
+//Interfaccia e funzione per i messaggi
 interface ChatMessage {
   sender: string;
   text: string;
@@ -16,11 +17,7 @@ export const addMessage = async (chatId: string, message: ChatMessage): Promise<
   }
 };
 
-
-
-
-
-
+//Interfaccia e creazione utente (semplificata)
 interface User {
   name: string;
 }
