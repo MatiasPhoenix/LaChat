@@ -58,15 +58,23 @@ function Prova2() {
       <button onClick={() => setUser('user1')} className={`mx-2 ${user === 'user1' ? 'bg-blue-500 text-white' : ''}`}>User 1</button>
       <button onClick={() => setUser('user2')} className={`mx-2 ${user === 'user2' ? 'bg-blue-500 text-white' : ''}`}>User 2</button>
     </div> */}
+    
     <div className='mt-5 areaChat mx-5'>
-      {messages.map((msg, index) => (
-        <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'}
-         ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
-           <strong>{msg.sender}</strong>: 
-           <p className={`${msg.sender === user ? 'justify-start text-left pl-6 py-2' : 'justify-end text-right pr-6 py-2'}` }>
-           {msg.text} 
-           </p>
-         </div>
+       {messages.map((msg, index) => (
+        
+        <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'} ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
+
+          <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+             <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender}</span>
+                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{msg.timestamp}</span>
+             </div>
+             <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{msg.text}</p>
+          </div>
+
+        </div>
+        
+         
        ))}
     </div>
     <div className="absolute bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center">
@@ -85,3 +93,12 @@ function Prova2() {
 }
 
 export default Prova2;
+
+
+{/* <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'}
+          ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
+            <strong>{msg.sender}</strong>: 
+            <p className={`${msg.sender === user ? 'justify-start text-left pl-6 py-2' : 'justify-end text-right pr-6 py-2'}` }>
+            {msg.text} 
+            </p>
+          </div> */}

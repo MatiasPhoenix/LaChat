@@ -9,7 +9,7 @@ import Chat from './Rooms/Chat.tsx';
 export const router = createBrowserRouter([
   {path:"/", element: <App />},
   {path:"/Prova1", element: <Prova1 />},
-  {path:"/Prova2", element: <Prova2 />},
+  {path:"/Chatroom", element: <Prova2 />},
   {path:"/Prova3", element: <Prova3 />},
   {path:"/Chat", element: <Chat />},
   {path:"/Esperimento", element: 
