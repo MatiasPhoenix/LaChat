@@ -6,9 +6,9 @@ import LinksRoutes from '../LinksRoutes';
 
 function Prova2() {
   const [user,     setUser]     = useState<string>(''); // 'user1' o 'user2'
+  const [userId,   setUserId]   = useState<string | null>(null);
   const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
-  const [userId,   setUserId]   = useState<string | null>(null);
 
 
   const chatId = 'chat_example';
@@ -58,25 +58,24 @@ function Prova2() {
       <button onClick={() => setUser('user1')} className={`mx-2 ${user === 'user1' ? 'bg-blue-500 text-white' : ''}`}>User 1</button>
       <button onClick={() => setUser('user2')} className={`mx-2 ${user === 'user2' ? 'bg-blue-500 text-white' : ''}`}>User 2</button>
     </div> */}
-    
-    <div className='mt-5 areaChat mx-5'>
-       {messages.map((msg, index) => (
-        
-        <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'} ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
 
-          <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-             <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender}</span>
-                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{msg.timestamp}</span>
-             </div>
-             <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{msg.text}</p>
-          </div>
-
-        </div>
-        
-         
-       ))}
+<div className='mt-5 areaChat mx-5'>
+  {messages.map((msg, index) => (
+    <div key={index} className="mb-2 grid justify-items-stretch">
+      <div
+        className={`mx-3 flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-es-xl rounded-e-xl 
+        ${msg.sender === userId ? 'rounded-tr-none rounded-tl-lg bg-green-600 justify-self-end text-left pl-6' 
+                                : 'rounded-tl-none bg-sky-600 justify-self-start text-right pr-6'}`}>
+        {/* <div className="flex items-center space-x-2 rtl:space-x-reverse"></div> */}
+        <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender}</span>
+        <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+          {msg.text}
+        </p>
+      </div>
     </div>
+  ))}
+</div>
+
     <div className="absolute bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center">
       <input
         className='flex-grow p-2 rounded-l-md bg-gray-900 text-white border border-gray-700 focus:outline-none'

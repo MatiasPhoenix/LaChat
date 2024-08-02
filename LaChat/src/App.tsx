@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function App() {
   const [name, setName] = useState('');
-  const [boolUser, setBoolUser] = useState(false);
+  // const [boolUser, setBoolUser] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [arrayUsers, setArrayUsers] = useState<any[]>([]);
   const [count, setCount] = useState(0);
@@ -17,7 +17,7 @@ function App() {
 
 useEffect(() => {
   getUserId();
-  booleanUser();
+  // booleanUser();
   setCount(count + 1);
   },[]);
 
@@ -31,13 +31,13 @@ useEffect(() => {
     }
   };
 
- const booleanUser = () =>{
-  if (userId == null) {
-    setBoolUser(false);
-  }else{
-    setBoolUser(true);
-  }
- }
+//  const booleanUser = () =>{
+//   if (userId == null) {
+//     setBoolUser(false);
+//   }else{
+//     setBoolUser(true);
+//   }
+//  }
   const getUserId = () => {
     const nomeTemp = localStorage.getItem("userName");
     if (nomeTemp !== null) {
@@ -58,7 +58,7 @@ useEffect(() => {
     </div>
 
     {/* Con il booleano cambia la visibilità della pagina */}
-    {boolUser ? 
+    {userId ? 
     <h1 className='py-3'>{userId ? 'Ciao ' + userId + '!' : 'Devi ancora scegliere un Nickname'}</h1>
     :
     <div className='mt-10'>
@@ -82,7 +82,7 @@ useEffect(() => {
       {arrayUsers.map((user, index) => (
         user.name !== userId &&(
         <li key={index}>
-          <Link to="/Chatroom.">
+          <Link to="/Chatroom">
             <span>{user.name}</span>
           </Link>
         </li>
