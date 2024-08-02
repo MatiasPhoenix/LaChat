@@ -43,41 +43,43 @@ function Prova2() {
   
 
   return (
-    <>
-      <LinksRoutes/>
-    <ul className='mt-5'>
-      <li>Il tuo nome è:</li>
-      <li>{userId ? userId : 'Non sei un utente attivo'}</li>
-    </ul>
+    <div className='container bg-slate-950'>
+      <div className='left-0 right-0 bg-gray-800 py-2 px-10 items-center flex justify-between items-center'>
+      <div>
+        <LinksRoutes/>
+      </div>
+        <p className=''>{userId ? userId : 'Non sei un utente attivo'}</p>
+      </div>
+    
     <div className='mb-5'>
     </div>
     {/* <div className='flex justify-center'>
       <button onClick={() => setUser('user1')} className={`mx-2 ${user === 'user1' ? 'bg-blue-500 text-white' : ''}`}>User 1</button>
       <button onClick={() => setUser('user2')} className={`mx-2 ${user === 'user2' ? 'bg-blue-500 text-white' : ''}`}>User 2</button>
     </div> */}
-      <div className='mt-5'>
-        <h2>Messaggi:</h2>
-        {messages.map((msg, index) => (
-          <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'} ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
-             <strong>{msg.sender}</strong>: 
-             <p className={`${msg.sender === user ? 'justify-start text-left pl-6 py-2' : 'justify-end text-right pr-6 py-2'}` }>
-             {msg.text} 
-             </p>
-           </div>
-         ))}
-      </div>
-    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4">
+    <div className='mt-5 areaChat mx-5'>
+      {messages.map((msg, index) => (
+        <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'}
+         ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
+           <strong>{msg.sender}</strong>: 
+           <p className={`${msg.sender === user ? 'justify-start text-left pl-6 py-2' : 'justify-end text-right pr-6 py-2'}` }>
+           {msg.text} 
+           </p>
+         </div>
+       ))}
+    </div>
+    <div className="absolute bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center">
       <input
-        className='py-2 px-3'
+        className='flex-grow p-2 rounded-l-md bg-gray-900 text-white border border-gray-700 focus:outline-none'
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && inviaMessaggio()}
         placeholder="Scrivi il tuo messaggio"
       />
-      <button onClick={inviaMessaggio}>Invia</button>
+      <button className='p-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-700' onClick={inviaMessaggio}>Invia</button>
     </div>
-    </>
+    </div>
   );
 }
 
