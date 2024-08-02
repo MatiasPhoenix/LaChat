@@ -40,18 +40,6 @@ const App: React.FC = () => {
         onChange={(e) => setName(e.target.value)}
         placeholder="Nome"
       />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input
-        type="number"
-        value={age}
-        // onChange={(e) => setAge(e.target.value)}
-        placeholder="Età"
-      />
       <button onClick={handleSubmit}>Aggiungi Utente</button>
 
       <div>

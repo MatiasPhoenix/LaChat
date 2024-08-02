@@ -20,10 +20,9 @@ export const addMessage = async (chatId: string, message: ChatMessage): Promise<
 
 
 
+
 interface User {
   name: string;
-  email: string;
-  age: number;
 }
 
 export const addUser = async (user: User): Promise<void> => {
@@ -31,6 +30,7 @@ export const addUser = async (user: User): Promise<void> => {
     const userId = new Date().getTime().toString(); 
     const userRef = ref(db, 'utenti/' + userId); 
     await set(userRef, user);
+    localStorage.setItem(`userName`, user.name);
     console.log('User added with ID: ', userId);
   } catch (e) {
     console.error('Error adding document: ', e);
