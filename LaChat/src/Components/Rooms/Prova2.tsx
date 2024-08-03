@@ -10,7 +10,6 @@ function Prova2() {
   const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
 
-
   const chatId = 'chat_example';
 
   useEffect(() => {

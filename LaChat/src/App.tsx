@@ -77,6 +77,7 @@ useEffect(() => {
       </div>
     </div>}
 
+    {userId ? 
     <ul className='mt-5'>
       <li>Con chi vuoi chattare?:</li>
       {arrayUsers.map((user, index) => (
@@ -87,7 +88,8 @@ useEffect(() => {
           </Link>
         </li>
       )))}
-    </ul>
+    </ul> :
+    <div></div> }
 
   </div>
   );

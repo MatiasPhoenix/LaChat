@@ -8,7 +8,7 @@ const LinksRoutes = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/Chatroom">Chat Room</Link>
+            {/* <Link to="/Chatroom">Chat Room</Link> */}
           </li>
         </ul>
     </>
