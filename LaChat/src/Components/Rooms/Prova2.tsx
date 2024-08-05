@@ -10,7 +10,10 @@ function Prova2() {
   const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
 
-  const chatId = 'chat_example';
+  const user1 = localStorage.getItem("chatName1");
+  const user2 = localStorage.getItem("chatName2");
+  const chatId = user1! + user2;
+  const chatId2 = user2! + user1;
 
   useEffect(() => {
     getUserId();
@@ -24,7 +27,7 @@ function Prova2() {
         text: message,
         timestamp: Date.now(),
       };
-      await addMessage(chatId, newMessage);
+      await addMessage(chatId, chatId2, newMessage);
       setMessage('');
     } else {
       console.log('Please select a user and enter a message.');
@@ -53,10 +56,6 @@ function Prova2() {
     
     <div className='mb-5'>
     </div>
-    {/* <div className='flex justify-center'>
-      <button onClick={() => setUser('user1')} className={`mx-2 ${user === 'user1' ? 'bg-blue-500 text-white' : ''}`}>User 1</button>
-      <button onClick={() => setUser('user2')} className={`mx-2 ${user === 'user2' ? 'bg-blue-500 text-white' : ''}`}>User 2</button>
-    </div> */}
 
 <div className='mt-5 areaChat mx-5'>
   {messages.map((msg, index) => (
@@ -65,7 +64,6 @@ function Prova2() {
         className={`mx-3 flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-es-xl rounded-e-xl 
         ${msg.sender === userId ? 'rounded-tr-none rounded-tl-lg bg-green-600 justify-self-end text-left pl-6' 
                                 : 'rounded-tl-none bg-sky-600 justify-self-start text-right pr-6'}`}>
-        {/* <div className="flex items-center space-x-2 rtl:space-x-reverse"></div> */}
         <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender}</span>
         <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
           {msg.text}
@@ -91,12 +89,3 @@ function Prova2() {
 }
 
 export default Prova2;
-
-
-{/* <div key={index} className={`p-2 mb-2 ${msg.sender === user ? 'bg-sky-600' : 'bg-green-600'}
-          ${msg.sender === user ? 'justify-start text-left pl-6' : 'justify-end text-right pr-6'}` }>
-            <strong>{msg.sender}</strong>: 
-            <p className={`${msg.sender === user ? 'justify-start text-left pl-6 py-2' : 'justify-end text-right pr-6 py-2'}` }>
-            {msg.text} 
-            </p>
-          </div> */}

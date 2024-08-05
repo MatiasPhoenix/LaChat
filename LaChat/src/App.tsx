@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 function App() {
   const [name, setName] = useState('');
-  // const [boolUser, setBoolUser] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [arrayUsers, setArrayUsers] = useState<any[]>([]);
   const [count, setCount] = useState(0);
@@ -17,7 +16,6 @@ function App() {
 
 useEffect(() => {
   getUserId();
-  // booleanUser();
   setCount(count + 1);
   },[]);
 
@@ -31,13 +29,6 @@ useEffect(() => {
     }
   };
 
-//  const booleanUser = () =>{
-//   if (userId == null) {
-//     setBoolUser(false);
-//   }else{
-//     setBoolUser(true);
-//   }
-//  }
   const getUserId = () => {
     const nomeTemp = localStorage.getItem("userName");
     if (nomeTemp !== null) {
@@ -47,6 +38,14 @@ useEffect(() => {
     }
     listenToUsers(setArrayUsers);
   };
+
+  const newChatName = (nameUser:string) =>{
+    const chatName1 = userId + nameUser;
+    const chatName2 = nameUser + userId ;
+    localStorage.setItem("chatName1", chatName1);
+    localStorage.setItem("chatName2", chatName2);
+  }
+  
 
   return (  
   <div className='container bg-slate-950'>
@@ -84,7 +83,7 @@ useEffect(() => {
         user.name !== userId &&(
         <li key={index}>
           <Link to="/Chatroom">
-            <span>{user.name}</span>
+            <span onClick={() => newChatName(user.name) }>{user.name}</span>
           </Link>
         </li>
       )))}

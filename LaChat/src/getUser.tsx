@@ -35,4 +35,19 @@ export const getMessages = (chatId: string, callback: (messages: any[]) => void)
 };
 
 
-
+export const getChatIds = (): Promise<string[]> => {
+  return new Promise((resolve, reject) => {
+    const chatsRef = ref(db, 'chats');
+    onValue(chatsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const chatIds = Object.keys(data);
+        resolve(chatIds);
+      } else {
+        resolve([]);
+      }
+    }, (error) => {
+      reject(error);
+    });
+  });
+};

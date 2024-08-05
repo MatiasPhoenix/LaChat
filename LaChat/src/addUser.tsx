@@ -8,9 +8,18 @@ interface ChatMessage {
   timestamp: number;
 }
 
-export const addMessage = async (chatId: string, message: ChatMessage): Promise<void> => {
+export const addMessage = async (chatId: string, chatId2 : string, message: ChatMessage): Promise<void> => {
   try {
     const messagesRef = ref(db, `chats/${chatId}/messages`);
+    addMessage2(chatId2, message);
+    await push(messagesRef, message);
+  } catch (error) {
+    console.error('Error adding message: ', error);
+  }
+};
+const addMessage2 = async (chatId2 : string, message: ChatMessage): Promise<void> => {
+  try {
+    const messagesRef = ref(db, `chats/${chatId2}/messages`);
     await push(messagesRef, message);
   } catch (error) {
     console.error('Error adding message: ', error);
