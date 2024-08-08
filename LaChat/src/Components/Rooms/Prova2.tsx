@@ -72,7 +72,7 @@ function Prova2() {
       </div>
     <div className='flex items-center py-6 bg-red-900 h-10'>
       {/* <p className='font-bold pe-2'>Stai chattando con:</p> */}
-       <img className='h-8 ps-5 pe-1' src={imgUser} alt="" /><p className='font-bold'>{user2}</p>
+       <img className='h-8 ps-5 pe-1' src={imgUser!} alt="" /><p className='font-bold'>{user2}</p>
     </div>
     
     {/* Sezione messaggi della chat */}
