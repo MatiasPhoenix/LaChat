@@ -29,7 +29,7 @@ const addMessage2 = async (chatId2 : string, message: ChatMessage): Promise<void
 //Interfaccia e creazione utente (semplificata)
 interface User {
   name: string;
-  avatar: string;
+  avatar: any;
 }
 
 export const addUser = async (user: User): Promise<void> => {

@@ -1,56 +1,47 @@
-// // App.tsx
-// import React, { useEffect, useState } from 'react';
-// import { addUser } from '../../addUser';
-// import { listenToUsers } from '../../getUser';
-// import LinksRoutes from '../LinksRoutes';
+// App.tsx
+import React, { useEffect, useState } from 'react';
+
+import { listenToUsers } from '../../getUser';
+import LinksRoutes from '../LinksRoutes';
 
 
-// const App: React.FC = () => {
-//   const [name, setName] = useState('');
+const App: React.FC = () => {
+  const [name, setName] = useState('');
 //   const [email, setEmail] = useState('');
 //   const [age, setAge] = useState<number | ''>('');
-//   const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<any[]>([]);
 
-//   const handleSubmit = async () => {
-//     if (name && email && age) {
-//       const user = { name, email, age: Number(age) };
-//       await addUser(user);
-      
-//       setName('');
-//       setEmail('');
-//       setAge('');
-//     } else {
-//       console.log('Please fill in all fields.');
-//     }
-//   };
-
-//   useEffect(() => {
+  const handleSubmit = async () => {
     
-//     listenToUsers(setUsers);
-//   }, []);
+  };
 
-//   return (
-//     <div>
-//       <LinksRoutes/>
+  useEffect(() => {
+    
+    listenToUsers(setUsers);
+  }, []);
 
-//       <h1>Aggiungi Utente</h1>
-//       <input
-//         type="text"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//         placeholder="Nome"
-//       />
-//       <button onClick={handleSubmit}>Aggiungi Utente</button>
+  return (
+    <div>
+      <LinksRoutes/>
 
-//       <div>
-//       <ul>
-//         {users.map((user, index) => (
-//           <li key={index}>{JSON.stringify("Nome utente: " + user.name)}</li>
-//         ))}
-//       </ul>
-//       </div>
-//     </div>
-//   );
-// };
+      <h1>Aggiungi Utente</h1>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Nome"
+      />
+      <button onClick={handleSubmit}>Aggiungi Utente</button>
 
-// export default App;
+      <div>
+      <ul>
+        {users.map((user, index) => (
+          <li key={index}>{JSON.stringify("Nome utente: " + user.name)}</li>
+        ))}
+      </ul>
+      </div>
+    </div>
+  );
+};
+
+export default App;
