@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <div className='flex'>
         <LateralBar />
-      <div className='flex flex-col bg-green-800 myElement'>
+      <div className='flex flex-col bg-black myElement'>
         <RouterProvider router={router} />
       </div>
     </div>

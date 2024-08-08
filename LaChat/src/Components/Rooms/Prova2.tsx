@@ -85,7 +85,7 @@ function Prova2() {
   };
 
   return (
-    <div className='container bg-slate-950'>
+  <div className='container homepage bg-slate-950'>
 
       <div className='flex items-center py-6 bg-slate-800 h-10'>
       <div>
@@ -122,7 +122,7 @@ function Prova2() {
       />
       <button className='p-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-700' onClick={inviaMessaggio}>Invia</button>
     </div>
-    </div>
+  </div>
   );
 }
 

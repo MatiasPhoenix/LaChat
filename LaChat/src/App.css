@@ -47,13 +47,13 @@
   width: 100vw;
 }
 
-.sideBar{
+.homepage{
   height: 100vh;
 }
 .container {
   position: relative;
   width: 100%; 
-  height: 100%;
+  height: 100vh;
 }
 
 .areaChat{
