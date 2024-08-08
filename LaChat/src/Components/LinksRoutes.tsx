@@ -5,7 +5,7 @@ const LinksRoutes = () => {
     <>
         <ul className='flex justify-center space-x-10'>
           <li>
-            <Link to="/">Home</Link>
+            <Link className="font-bold" to="/">Home</Link>
           </li>
           <li>
             {/* <Link to="/Chatroom">Chat Room</Link> */}

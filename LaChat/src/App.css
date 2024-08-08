@@ -58,6 +58,17 @@
 
 .areaChat{
   background-image: url(../src/assets/bgChat.png);
-  height: 85vh;
-  
+  height: 100%
+}
+
+.avatarArea{
+  margin: 0 auto;
+}
+.avatar{
+  height: 70px;
+}
+@media (max-width: 800px) {
+  .avatar {
+    height: 45px;
+  }
 }

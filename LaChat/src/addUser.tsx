@@ -29,6 +29,7 @@ const addMessage2 = async (chatId2 : string, message: ChatMessage): Promise<void
 //Interfaccia e creazione utente (semplificata)
 interface User {
   name: string;
+  avatar: string;
 }
 
 export const addUser = async (user: User): Promise<void> => {
@@ -37,6 +38,8 @@ export const addUser = async (user: User): Promise<void> => {
     const userRef = ref(db, 'utenti/' + userId); 
     await set(userRef, user);
     localStorage.setItem(`userName`, user.name);
+    localStorage.setItem(`userAvatar`, user.avatar);
+    window.location.reload();
     console.log('User added with ID: ', userId);
   } catch (e) {
     console.error('Error adding document: ', e);
