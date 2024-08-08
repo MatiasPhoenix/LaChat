@@ -16,7 +16,7 @@ import avatarImg10 from '../../assets/Avatar09.png';
 
 function Prova2() {
   const [user,     setUser]     = useState<string>(''); // 'user1' o 'user2'
-  const [avatar, setAvatar] = useState<string| null>(null);
+  // const [avatar, setAvatar] = useState<string| null>(null);
   const [userId,   setUserId]   = useState<string | null>(null);
   const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
@@ -63,7 +63,7 @@ function Prova2() {
     if (nomeTemp !== null || avatarTemp !== null) {
       setUserId(nomeTemp);
       setUser(nomeTemp!);
-      setAvatar(avatarTemp)
+      
     } else {
       console.log("Nome utente non trovato nel local storage");
     }
