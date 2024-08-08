@@ -1,11 +1,12 @@
+import { HiOutlineArrowSmLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const LinksRoutes = () => {
   return (
     <>
         <ul className='flex justify-center space-x-10'>
-          <li>
-            <Link className="font-bold" to="/">Home</Link>
+          <li className="ps-4">
+            <Link className="font-bold" to="/"><HiOutlineArrowSmLeft size={28}/></Link>
           </li>
           <li>
             {/* <Link to="/Chatroom">Chat Room</Link> */}
