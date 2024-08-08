@@ -80,7 +80,7 @@ useEffect(() => {
       )}
       </p>
     </div>
-
+      
     {userId ? 
     <h1 className='py-3'>{userId ? '' : 'Devi ancora scegliere un Nickname'}</h1>
     :

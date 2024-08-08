@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getMessages } from '../../getUser';
 import { addMessage } from '../../addUser';
 import LinksRoutes from '../LinksRoutes';
@@ -10,6 +10,8 @@ function Prova2() {
   const [userId,   setUserId]   = useState<string | null>(null);
   const [message,  setMessage]  = useState<string>('');
   const [messages, setMessages] = useState<any[]>([]);
+  
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const user1 = localStorage.getItem("chatName1");
   const user2 = localStorage.getItem("chatName2");
@@ -21,7 +23,15 @@ function Prova2() {
     getUserId();
     getMessages(chatId, setMessages);
   }, [chatId]);
+  useEffect(() => {
+    scrollMessagge();
+  },[messages]);
 
+  const scrollMessagge = () =>{
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   const inviaMessaggio = async () => {
     if (user && message.trim()) {
       const newMessage = {
@@ -30,6 +40,7 @@ function Prova2() {
         timestamp: Date.now(),
       };
       await addMessage(chatId, chatId2, newMessage);
+      scrollMessagge();
       setMessage('');
     } else {
       console.log('Please select a user and enter a message.');
@@ -64,7 +75,7 @@ function Prova2() {
        <img className='h-8 ps-5 pe-1' src={imgUser} alt="" /><p className='font-bold'>{user2}</p>
     </div>
     
-
+    {/* Sezione messaggi della chat */}
     <div className='mt-5 areaChat mx-5'>
       {messages.map((msg, index) => (
         <div key={index} className="mb-2 grid justify-items-stretch">
@@ -73,7 +84,7 @@ function Prova2() {
             ${msg.sender === userId ? 'rounded-tr-none rounded-tl-lg bg-green-600 justify-self-end text-left pl-6' 
             : 'rounded-tl-none bg-sky-600 justify-self-start text-right pr-6'}`}>
             <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender}</span>
-            <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+            <p ref={messagesEndRef} className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
               {msg.text}
             </p>
           </div>
@@ -81,6 +92,7 @@ function Prova2() {
       ))}
     </div>
 
+    {/* Sezione dove scrivere/inviare i messaggi */}
     <div className="absolute bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center">
       <input
         className='flex-grow p-2 rounded-l-md bg-gray-900 text-white border border-gray-700 focus:outline-none'

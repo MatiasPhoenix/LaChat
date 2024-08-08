@@ -58,7 +58,10 @@
 
 .areaChat{
   background-image: url(../src/assets/bgChat.png);
-  height: 100%
+  height: 80vh; 
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 .avatarArea{
