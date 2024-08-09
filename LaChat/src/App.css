@@ -56,6 +56,18 @@
   height: 100vh;
 }
 
+.bgApp{
+  background-image: url(../src/assets/background\ app\ darkness.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (min-width: 800px) {
+  .bgApp {
+    background-size:auto;
+  }
+}
+
 .areaChat{
   background-image: url(../src/assets/bgChat.png);
   height: 85vh; 
